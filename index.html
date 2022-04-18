@@ -1,34 +1,86 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>error</title>
-    <style>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk@latest/dist/gitalk.css">
+    <style type="text/css">
         * {
             margin: 0;
             padding: 0;
-            font-family: Microsoft YaHei, '\9ed1\4f53';
         }
 
-        .main {
-            width: 80%;
-            margin: 50px auto;
-            box-sizing: border-box;
-            padding: 50px;
-            text-align: center;
+        .container {
+            margin: 0 auto;
+            padding-bottom: 60px;
+            max-width: 720px;
+            color: #6190E8;
+            font-family: "PingFang SC", Helvetica, "Microsoft YaHei", Arial, sans-serif;
         }
 
-        .main p {
-            display: block;
-            font-size: 24px;
+        .hero h1 {
+            margin-left: 16px;
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 500;
+            vertical-align: bottom;
+        }
+
+        .hero-intro {
+            margin: 28px 0;
+            font-size: 20px;
             font-weight: 300;
-            color: #839ca1;
+        }
+
+        .hero-buttons a {
+            display: inline-block;
+            text-decoration: none;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 36px;
+        }
+
+        .btn-begin {
+            padding: 0 20px;
+            min-width: 80px;
+            color: white;
+            background-color: #6190E8;
+        }
+
+        .demo-title span {
+            display: inline-block;
+            padding-bottom: 10px;
+            font-size: 20px;
+            border-bottom: 1px dashed #6190E8;
+            width: 120px;
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
-<div class="main">
-    <p>抱歉！该站点已经被管理员停止运行，请联系管理员了解详情！</p>
+<div class="container">
+    <div id="gitalk-container"></div>
 </div>
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'b8ddedfe7f9535a5714d', // GitHub Application Client ID
+        clientSecret: 'e88f2a1d73ee5c645bf560d401586e1611dd1edd', // GitHub Application Client Secret
+        repo: 'tiantang-cn',              // 存放评论的仓库
+        owner: 'tiantang-cn',      // 仓库的创建者
+        admin: ['tiantang-cn'],    // 如果仓库有多个人可以操作，那么在这里以数组形式写出
+        id: 'Demo',             // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
+        distractionFreeMode: true,  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container');    // 渲染Gitalk评论组件
+
+</script>
 </body>
 </html>
